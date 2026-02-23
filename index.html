@@ -3,54 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tower Click Game</title>
-
+<title>Chicken Clicker</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#111111">
-
-<style>
-body {
-  margin: 0;
-  background: #111111;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding-top: 50px;
-}
-h1 { font-size: 32px; }
-h2 { font-size: 24px; margin-bottom: 30px; }
-button {
-  padding: 20px 40px;
-  font-size: 22px;
-  background: orange;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-button:hover { background: darkorange; }
-</style>
-
+<meta name="theme-color" content="#fff">
+<script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
 </head>
 <body>
 
-<h1>🏰 Tower Click Game</h1>
-<h2>Score: <span id="score">0</span></h2>
-<button onclick="addScore()">CLICK ME</button>
+<script src="game.js"></script>
 
 <script>
-let score = 0;
-function addScore() {
-  score++;
-  document.getElementById("score").innerText = score;
-}
-
-// Service Worker registration
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js')
-  .then(() => console.log('Service Worker Registered'))
-  .catch(err => console.log('SW Error:', err));
+  .then(()=>console.log('SW Registered'))
+  .catch(err=>console.log(err));
 }
 </script>
-
 </body>
 </html>
