@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tower Click</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111">
+
+<style>
+body{
+  margin:0;
+  background:#111;
+  color:white;
+  text-align:center;
+  font-family:Arial;
+}
+button{
+  padding:20px 40px;
+  font-size:22px;
+  background:orange;
+  border:none;
+  border-radius:10px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>🏰 Tower Click Game</h1>
+<h2>Score: <span id="score">0</span></h2>
+
+<button onclick="addScore()">CLICK ME</button>
+
+<script>
+let score = 0;
+
+function addScore(){
+  score++;
+  document.getElementById("score").innerText = score;
+}
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
